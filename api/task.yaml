@@ -1,8 +1,7 @@
 version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/aw40/api:$ID -t {{.Run.Registry}}/aw40/api:latest -f Dockerfile .
+  - build: -t {{.Run.Registry}}/aw40/api:latest -f Dockerfile .
     env:
       - DOCKER_BUILDKIT=1
   - push:
-      - {{.Run.Registry}}/aw40/api:$ID"
       - {{.Run.Registry}}/aw40/api:latest"
