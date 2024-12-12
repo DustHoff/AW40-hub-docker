@@ -4,4 +4,4 @@ steps:
     env:
       - DOCKER_BUILDKIT=1
   - push:
-      - $Registry/api:latest"
+      - $Registry/api:latest
