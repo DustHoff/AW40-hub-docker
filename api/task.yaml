@@ -1,7 +1,7 @@
 version: v1.1.0
 steps:
-  - build: -t $Registry/aw40/api:latest  .
+  - build: -t $Registry/api:latest  .
     env:
       - DOCKER_BUILDKIT=1
   - push:
-      - $Registry/aw40/api:latest"
+      - $Registry/api:latest"
