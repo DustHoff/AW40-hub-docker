@@ -1,10 +1,10 @@
 version: v1.1.0
 steps:
-  - build: -t $Registry/frontend:latest --build-arg PROXY_DEFAULT_SCHEME={{.Values.PROXY_DEFAULT_SCHEME}} --build-arg FRONTEND_REDIRECT_URI_MOBILE={{.Values.FRONTEND_REDIRECT_URI_MOBILE}} --build-arg FRONTEND_LOG_LEVEL={{.Values.FRONTEND_LOG_LEVEL}} --build-arg KEYCLOAK_REALM={{.Values.KEYCLOAK_REALM}} --build-arg KEYCLOAK_FRONTEND_CLIENT={{.Values.KEYCLOAK_FRONTEND_CLIENT}} --build-arg KEYCLOAK_ADDRESS={{.Values.KEYCLOAK_ADDRESS}} --build-arg API_ADDRESS={{.Values.API_ADDRESS}}{{.Values.API_PATH}} --build-arg API_ADDRESS={{.Values.API_ADDRESS}}{{.Values.API_PATH}} --build-arg FRONTEND_PATH={{.Values.FRONTEND_PATH}} .
+  - build: -t $Registry/frontend:latest  .
     env:
       - DOCKER_BUILDKIT=1
       - API_ADDRESS={{.Values.API_ADDRESS}}{{.Values.API_PATH}}
-      - FRONTEND_ADDRESS={{.Values.FRONTEND_ADDRESS}}
+      - FRONTEND_ADDRESS=test.de
       - FRONTEND_PATH={{.Values.FRONTEND_PATH}}
       - KEYCLOAK_ADDRESS={{.Values.KEYCLOAK_ADDRESS}}
       - KEYCLOAK_FRONTEND_CLIENT={{.Values.KEYCLOAK_FRONTEND_CLIENT}}
