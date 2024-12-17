@@ -1,6 +1,6 @@
 version: v1.1.0
 steps:
-  - build: -t $Registry/frontend:latest  --args API_ADDRESS=api.aw40.lmis.de --args FRONTEND_ADDRESS=frontend.aw40.lmis.de .
+  - build: -t $Registry/frontend:latest  --build-arg API_ADDRESS=api.aw40.lmis.de --build-arg FRONTEND_ADDRESS=frontend.aw40.lmis.de .
     env:
       - DOCKER_BUILDKIT=1
       - API_ADDRESS=api.aw40.lmis.de
