@@ -1,16 +1,16 @@
 version: v1.1.0
 steps:
-  - build: -t $Registry/frontend:latest  .
+  - build: -t $Registry/frontend:latest  --args API_ADDRESS=api.aw40.lmis.de --args FRONTEND_ADDRESS=frontend.aw40.lmis.de .
     env:
       - DOCKER_BUILDKIT=1
-      - API_ADDRESS={{.Values.API_ADDRESS}}{{.Values.API_PATH}}
-      - FRONTEND_ADDRESS=test.de
-      - FRONTEND_PATH={{.Values.FRONTEND_PATH}}
-      - KEYCLOAK_ADDRESS={{.Values.KEYCLOAK_ADDRESS}}
-      - KEYCLOAK_FRONTEND_CLIENT={{.Values.KEYCLOAK_FRONTEND_CLIENT}}
-      - KEYCLOAK_REALM={{.Values.KEYCLOAK_REALM}}
-      - FRONTEND_LOG_LEVEL={{.Values.FRONTEND_LOG_LEVEL}}
-      - FRONTEND_REDIRECT_URI_MOBILE={{.Values.FRONTEND_REDIRECT_URI_MOBILE}}
-      - PROXY_DEFAULT_SCHEME={{.Values.PROXY_DEFAULT_SCHEME}}
+      - API_ADDRESS=api.aw40.lmis.de
+      - FRONTEND_ADDRESS=frontend.aw40.lmis.de
+      - FRONTEND_PATH=/
+      - KEYCLOAK_ADDRESS=auth.aw40.lmis.de
+      - KEYCLOAK_FRONTEND_CLIENT=aw40
+      - KEYCLOAK_REALM=aw40
+      - FRONTEND_LOG_LEVEL=warning
+      - FRONTEND_REDIRECT_URI_MOBILE=mobile
+      - PROXY_DEFAULT_SCHEME=https
   - push:
       - $Registry/frontend:latest
