@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     api_allow_origins: str
     mongo_host: str
     mongo_port: str
+    mongo_param: str
     mongo_username: str
     mongo_password: str
     mongo_db: str
@@ -35,10 +36,11 @@ class Settings(BaseSettings):
         password = self.mongo_password
         host = self.mongo_host
         port = self.mongo_port
+        param = self.mongo_param
 
         return (
             f"mongodb://{username}:{password}"
-            f"@{host}:{port}/?ssl=true"
+            f"@{host}:{port}/{param}"
         )
 
     @property
