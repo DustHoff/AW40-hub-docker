@@ -38,7 +38,7 @@ class Settings(BaseSettings):
 
         return (
             f"mongodb://{username}:{password}"
-            f"@{host}:{port}/?authSource=admin"
+            f"@{host}:{port}/?ssl=true"
         )
 
     @property
