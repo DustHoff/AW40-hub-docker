@@ -37,10 +37,11 @@ class Settings(BaseSettings):
         host = self.mongo_host
         port = self.mongo_port
         param = self.mongo_param
+        database = self.mongo_db
 
         return (
             f"mongodb://{username}:{password}"
-            f"@{host}:{port}/{param}"
+            f"@{host}:{port}/{database}{param}"
         )
 
     @property
