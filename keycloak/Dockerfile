@@ -5,6 +5,7 @@ ENV KC_HEALTH_ENABLED true
 # Set the working directory
 WORKDIR /opt/keycloak
 
+ADD keycloak-config.sh /opt/keycloak/bin/
 # Build Keycloak
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
