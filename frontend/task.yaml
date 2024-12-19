@@ -1,6 +1,6 @@
 version: v1.1.0
 steps:
-  - build: -t $Registry/frontend:latest --build-arg API_ADDRESS=api.aw40.lmis.de --build-arg FRONTEND_ADDRESS=frontend.aw40.lmis.de --build-arg KEYCLOAK_ADDRESS=auth.aw40.lmis.de --build-arg KEYCLOAK_FRONTEND_CLIENT=aw40hub-frontend --build-arg FRONTEND_LOG_LEVEL=warning --build-arg FRONTEND_REDIRECT_URI_MOBILE=https://frontend.aw40.lmis.de --build-arg PROXY_DEFAULT_SCHEME=https --build-arg KEYCLOAK_REALM=werkstatt-hub --build-arg FRONTEND_PATH=/ .
+  - build: -t $Registry/frontend:latest --build-arg API_ADDRESS=api.aw40.lmis.de --build-arg FRONTEND_ADDRESS=frontend.aw40.lmis.de --build-arg KEYCLOAK_ADDRESS=auth.aw40.lmis.de --build-arg KEYCLOAK_FRONTEND_CLIENT=aw40hub-frontend --build-arg FRONTEND_LOG_LEVEL=warning --build-arg FRONTEND_REDIRECT_URI_MOBILE=https://frontend.aw40.lmis.de --build-arg PROXY_DEFAULT_SCHEME=https --build-arg KEYCLOAK_REALM=werkstatt-hub .
     env:
       - DOCKER_BUILDKIT=1
   - push:
