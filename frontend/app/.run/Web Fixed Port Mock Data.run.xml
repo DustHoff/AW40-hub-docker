@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Web Fixed Port Mock Data" type="FlutterRunConfigurationType" factoryName="Flutter" activateToolWindowBeforeRun="false">
-    <option name="additionalArgs" value="-d chrome --web-port 4300 --dart-define=USE_MOCK_DATA=true" />
-    <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
-    <method v="2" />
-  </configuration>
-</component>

@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Web Fixed Port" type="FlutterRunConfigurationType" factoryName="Flutter" activateToolWindowBeforeRun="false">
-    <option name="additionalArgs" value="-d chrome --web-port 4200" />
-    <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
-    <method v="2" />
-  </configuration>
-</component>

@@ -17,7 +17,7 @@ resource "azurerm_container_registry_task" "api-build" {
   file_step {
     task_file_path       = "task.yaml"
     context_path         = "https://github.com/DustHoff/AW40-hub-docker#main:api"
-    context_access_token = ""
+    context_access_token = var.github_token
   }
 }
 
@@ -38,7 +38,7 @@ resource "azurerm_container_registry_task" "diagnostics-build" {
   file_step {
     task_file_path       = "task.yaml"
     context_path         = "https://github.com/DustHoff/AW40-hub-docker#main:diagnostics"
-    context_access_token = ""
+    context_access_token = var.github_token
   }
 }
 
@@ -70,7 +70,7 @@ resource "azurerm_container_registry_task" "frontend-build" {
     }
     task_file_path       = "task.yaml"
     context_path         = "https://github.com/DustHoff/AW40-hub-docker#main:frontend"
-    context_access_token = ""
+    context_access_token = var.github_token
   }
 }
 
@@ -91,7 +91,7 @@ resource "azurerm_container_registry_task" "keycloak-build" {
   file_step {
     task_file_path       = "task.yaml"
     context_path         = "https://github.com/DustHoff/AW40-hub-docker#main:keycloak"
-    context_access_token = ""
+    context_access_token = var.github_token
   }
 }
 
@@ -112,7 +112,7 @@ resource "azurerm_container_registry_task" "knowledgegraph-build" {
   file_step {
     task_file_path       = "task.yaml"
     context_path         = "https://github.com/DustHoff/AW40-hub-docker#main:knowledge-graph"
-    context_access_token = ""
+    context_access_token = var.github_token
   }
 }
 
@@ -133,7 +133,7 @@ resource "azurerm_container_registry_task" "nautilus-build" {
   file_step {
     task_file_path       = "task.yaml"
     context_path         = "https://github.com/DustHoff/AW40-hub-docker#main:nautilus"
-    context_access_token = ""
+    context_access_token = var.github_token
   }
 }
 
