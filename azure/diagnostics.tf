@@ -11,16 +11,6 @@ resource "azurerm_container_app" "diagnostics" {
     identity_ids = [azurerm_user_assigned_identity.containerapps.id]
   }
 
-  ingress {
-    target_port                = 8080
-    allow_insecure_connections = false
-    external_enabled           = true
-    traffic_weight {
-      percentage      = 100
-      latest_revision = true
-    }
-  }
-
   registry {
     server   = azurerm_container_registry.registry.login_server
     identity = azurerm_user_assigned_identity.containerapps.id
@@ -30,11 +20,11 @@ resource "azurerm_container_app" "diagnostics" {
     min_replicas = 1
     max_replicas = 1
     container {
-      cpu    = 0.25
+      cpu    = 2
       image  = "${azurerm_container_registry.registry.login_server}/diagnostics:latest"
-      memory = "0.5Gi"
+      memory = "4Gi"
       name   = "diagnostics"
-      command = ["celery", "-A", "diagnostics.tasks", "worker", "--loglevel=INFO"]
+      command = ["celery", "-A", "diagnostics.tasks", "worker", "--loglevel=debug"]
       env {
         name  = "REDIS_HOST"
         value = azurerm_redis_cache.redis.hostname
@@ -49,11 +39,15 @@ resource "azurerm_container_app" "diagnostics" {
       }
       env {
         name = "HUB_URL"
-        value = "https://api.aw40.lmis.de/v1"
+        value = "https://api.aw40.lmis.de/api/v1"
       }
       env {
         name = "KNOWLEDGE_GRAPH_URL"
         value = "https://knowledgegraph.aw40.lmis.de"
+      }
+      env {
+        name = "TF_ENABLE_ONEDNN_OPTS"
+        value = "0"
       }
     }
   }
