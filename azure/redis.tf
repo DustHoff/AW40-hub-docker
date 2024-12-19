@@ -5,4 +5,5 @@ resource "azurerm_redis_cache" "redis" {
   name                = "aw40-demohub-redis"
   resource_group_name = azurerm_resource_group.main.name
   sku_name            = "Basic"
+  non_ssl_port_enabled = true
 }
